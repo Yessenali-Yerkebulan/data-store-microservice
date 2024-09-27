@@ -4,6 +4,7 @@ import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
+import com.example.datastoremicroservice.model.Data;
 import com.example.datastoremicroservice.model.MeasurementType;
 import com.example.datastoremicroservice.model.Summary;
 import com.example.datastoremicroservice.model.SummaryType;
@@ -27,6 +28,11 @@ public class SummaryServiceImpl implements SummaryService{
 				measurementTypes == null ? Set.of(MeasurementType.values()) : measurementTypes,
 				summaryTypes == null ? Set.of(SummaryType.values()) : summaryTypes
 		).orElseThrow(SensorNotFoundException::new);
+	}
+
+	@Override
+	public void handle(Data data) {
+		summaryRepository.handle(data);
 	}
 
 }

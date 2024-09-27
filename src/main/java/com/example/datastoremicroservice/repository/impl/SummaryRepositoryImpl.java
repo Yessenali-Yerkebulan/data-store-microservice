@@ -6,6 +6,7 @@ import java.util.Set;
 import org.springframework.stereotype.Repository;
 
 import com.example.datastoremicroservice.config.RedisSchema;
+import com.example.datastoremicroservice.model.Data;
 import com.example.datastoremicroservice.model.MeasurementType;
 import com.example.datastoremicroservice.model.Summary;
 import com.example.datastoremicroservice.model.SummaryType;
@@ -76,5 +77,11 @@ public class SummaryRepositoryImpl implements SummaryRepository{
 		}
 		
 		return Optional.of(summary);
+	}
+
+	@Override
+	public void handle(Data data) {
+		// TODO Auto-generated method stub
+		
 	}
 }
